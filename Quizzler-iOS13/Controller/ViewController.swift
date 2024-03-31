@@ -31,10 +31,11 @@ class ViewController: UIViewController {
         
         if condition {
             sender.backgroundColor = UIColor.green
-            quizBrain.nextQuestion()
         } else {
             sender.backgroundColor = UIColor.red
         }
+        
+        quizBrain.nextQuestion()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
             self.updateUI()
