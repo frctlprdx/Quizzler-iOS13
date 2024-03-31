@@ -36,7 +36,11 @@ struct QuizBrain {
     }
     
     func getQuestionText() -> String{
-        return quiz[questionNumber].q
+        if questionNumber < quiz.count{
+            return quiz[questionNumber].q
+        }else {
+            return quiz[0].q
+        }
     }
     
     func getProgress() -> Float{
@@ -47,10 +51,17 @@ struct QuizBrain {
     mutating func nextQuestion(){
         if questionNumber < quiz.count {
             questionNumber += 1
+        }else {
+            questionNumber = 0
         }
     }
     
     func getScore() -> Int {
-        return questionNumber
+        if questionNumber < quiz.count {
+            return questionNumber
+        }else {
+            return 0
+        }
+        
     }
 }

@@ -35,7 +35,11 @@ class ViewController: UIViewController {
         } else {
             sender.backgroundColor = UIColor.red
         }
-        updateUI()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Change `2.0` to the desired number of seconds.
+            self.updateUI()
+        }
+        
     }
     
     func updateUI(){
@@ -43,6 +47,9 @@ class ViewController: UIViewController {
         questionLabel.text = quizBrain.getQuestionText()
         progressBar.progress = quizBrain.getProgress()
         scoreLabel.text = "Score : \(quizBrain.getScore())"
+        
+        trueButton.backgroundColor = UIColor.clear
+        falseButton.backgroundColor = UIColor.clear
     }
 }
 
