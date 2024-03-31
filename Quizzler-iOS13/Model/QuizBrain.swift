@@ -49,4 +49,8 @@ struct QuizBrain {
             questionNumber += 1
         }
     }
+    
+    func getScore() -> Int {
+        return questionNumber
+    }
 }
